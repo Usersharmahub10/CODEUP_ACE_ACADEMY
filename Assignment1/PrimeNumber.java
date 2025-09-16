@@ -1,3 +1,8 @@
+//This programe returns whether an entered number is prime or not
+//class owner : Harshit Sharma
+//date : 16-09-2025
+
+
 import java.util.Scanner;
 
 public class PrimeNumber{

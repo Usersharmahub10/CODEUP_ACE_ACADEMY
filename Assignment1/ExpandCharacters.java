@@ -1,3 +1,9 @@
+//This programe gives expanded string of each character according to their frequency given
+//class owner : Harshit Sharma
+//date : 16-09-2025
+
+
+
 import java.util.*;
 
 public class ExpandCharacters{
