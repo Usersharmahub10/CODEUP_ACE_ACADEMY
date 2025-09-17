@@ -3,31 +3,36 @@
 //date : 16-09-2025
 
 
-import java.util.*;
-
+import java.util.Scanner;
 public class LengthOfSubstring{
 	
-	static void lengthOfSubstring(String input){
-		ArrayList<Character> list = new ArrayList<Character>();
-		
+	static int lengthOfSubstring(String input){
+		boolean[] visitChar = new boolean[256]; 
 		int start = 0;
 		int end = 0;
 		int maxLength = 0;
+		
 		while(end < input.length()){
-			if(!list.contains(input.charAt(end))){
-				list.add(input.charAt(end));
+			char currentChar = input.charAt(end);
+			
+			if(!visitChar[currentChar]){
+				visitChar[currentChar] = true;
 				end++;
-				maxLength = Math.max(maxLength, list.size());
+				maxLength = (maxLength > end-start) ? maxLength : end-start;
 			} else {
-				list.remove(Character.valueOf(input.charAt(start)));
+				visitChar[input.charAt(start)] = false;
 				start++;
 			}
 		}
-		System.out.println(maxLength);
+		
+		return maxLength;
+		
 	}
 	public static void main(String[] args){
+		System.out.println("Enter the String : ");
 		Scanner sc = new Scanner(System.in);
-		String enter = sc.nextLine();
-		lengthOfSubstring(enter);
+		String strInput = sc.nextLine();
+		int output = lengthOfSubstring(strInput);
+		System.out.println("Length is : "+output);
 	}
 }

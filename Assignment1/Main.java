@@ -1,13 +1,8 @@
-//This programe returns whether an entered number is prime or not
-//class owner : Harshit Sharma
-//date : 16-09-2025
-
-
 import java.util.Scanner;
 
-public class PrimeNumber{
-	   
-	 static boolean primeNumberOrNot(){
+public class Main{
+	
+	    static boolean primeNumberOrNot(){
 		 Scanner sc = new Scanner(System.in);
 		int n;
 		while(true){
@@ -44,9 +39,15 @@ public class PrimeNumber{
 		 return isPrime;
 	 }
 	public static void main(String[] args){
-		boolean output = primeNumberOrNot();
-		System.out.println(output ? "Entered number is prime" : "Entered number is not prime");
+		System.out.print("Enter the Option which you want to run : ");
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nexInt();
 		
+		switch(n){
+			case 1 : 
+			     
+		}
 		
 	}
+	
 }

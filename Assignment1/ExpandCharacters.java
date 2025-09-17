@@ -8,27 +8,32 @@ import java.util.*;
 
 public class ExpandCharacters{
 	
-	static void expandString(String input){
-		 char[] ch = input.toCharArray();
-		 StringBuilder op = new StringBuilder();
-		 
-		 for(int i = 0 ; i < ch.length ; i++){
-			 if(Character.isLetter(ch[i])){
-				 if(Character.isDigit(ch[i+1])){
-					 int count = Character.getNumericValue(ch[i+1]);
-					 for(int j = 0 ; j < count ;j++){
-						 op.append(ch[i]);
-					 }
-				 } else{
-				 op.append(ch[i]);
-				 }
-			 }
-		 }
-		 System.out.println(op);
+	static String expandString(){
+		Scanner sc = new Scanner(System.in);
+		String stringInput =  sc.nextLine();
+		
+		String result = "";
+		int i = 0;
+		while(i < stringInput.length()){
+			char currentChar = stringInput.charAt(i);
+			i++;
+			
+			int count = 0;
+			
+			while(i < stringInput.length() && stringInput.charAt(i) >= '0' && stringInput.charAt(i) <= '9'){
+				count = (count*10) + (stringInput.charAt(i) - '0');
+				i++;
+			}
+			for(int j = 0; j < count; j++){
+				result+= currentChar;
+			}
+		}
+		
+		return result;
 	}
 	public static void main(String[] args){
-		Scanner sc = new Scanner(System.in);
-		String str =  sc.nextLine();
-		expandString(str);
+		
+		String output = expandString();
+		System.out.println(output);
 	}
 }

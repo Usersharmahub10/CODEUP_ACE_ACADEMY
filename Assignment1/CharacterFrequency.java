@@ -3,37 +3,36 @@
 //date : 16-09-2025
 
 
-import java.util.*;
+import java.util.Scanner;
 
 public class CharacterFrequency{
-	static void characterFreq(String input){
-		if(input == null ){
+	static String characterFreq(){
+		Scanner sc = new Scanner(System.in);
+		String strInput = sc.nextLine();
+		
+		if(strInput == null ){
 			System.out.println("Empty string entered");
-			return ;
+			return "Empty String Entered";
 		}
 		
-		StringBuilder str = new StringBuilder();
 		int count = 1;
-		char current = input.charAt(0);
-		
-		for(int i = 1 ; i < input.length() ; i++){
-			if(current == input.charAt(i)){
+		String result = "";
+		for(int i = 0 ; i < strInput.length(); i++){
+			if(  i+1 < strInput.length() && strInput.charAt(i) == strInput.charAt(i+1) ){
 				count++;
 			} else {
-				str.append(current).append(count);
-				current = input.charAt(i);
+				result = result + strInput.charAt(i);
+				result = result + count;
 				count = 1;
 			}
 		}
-		str.append(current).append(count);
+	
+		return result;
 		
-		System.out.println(str);
-		
-		
-	}
+}
 	public static void main(String[] args){
-		Scanner sc = new Scanner(System.in);
-		String str = sc.nextLine();
-		characterFreq(str);
+		
+		String output = characterFreq();
+		System.out.println(output);
 	}
 }
